@@ -26,17 +26,17 @@
  * @param int $oldversion the version we are upgrading from
  * @return bool result
  */
-function xmldb_auth_ldap_upgrade($oldversion) {
+function xmldb_auth_ldap1_upgrade($oldversion) {
 
     // Moodle v2.5.0 release upgrade line
     // Put any upgrade step following this
 
     // MDL-39323 New setting in 2.5, make sure it's defined.
     if ($oldversion < 2013052100) {
-        if (get_config('start_tls', 'auth/ldap') === false) {
-            set_config('start_tls', 0, 'auth/ldap');
+        if (get_config('start_tls', 'auth/ldap1') === false) {
+            set_config('start_tls', 0, 'auth/ldap1');
         }
-        upgrade_plugin_savepoint(true, 2013052100, 'auth', 'ldap');
+        upgrade_plugin_savepoint(true, 2013052100, 'auth', 'ldap1');
     }
 
     return true;
